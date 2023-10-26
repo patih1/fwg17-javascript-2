@@ -1,27 +1,25 @@
-
-let x = [1, 2, 3, 32, 5, 28]
-let y 
-function seleksiNilai(array,num1,num2){
+function seleksiNilai(num1,num2,array){
   if(array.length <= 5){
     console.log("jumlah angka dalam array harus lebih dari 5")
   }else if(num1 >= num2){
     console.log("nilai awal harus lebih besar dari nilai akhir")
   } else if (array.length > 5){
-    for(let x = 0; x < array.length; x++) {
-      temp = array[x]
+    for(let i = 0; i < array.length; i++) {
+      temp = array[i]
       if(temp >= num1 && temp <= num2) {
-        // y.push(temp)
-        y = [temp]
+        let y = []
+        y = [...y,temp]
         // console.log(temp)
         console.log(y)
-        
       }else if (temp <= num1 && temp >= num2){
         console.log("angka tidak ditemukan")
       }
       
       }
+      
     }
+    
   }
 
 
-seleksiNilai(x,2,6)
+seleksiNilai(2 ,6, [1, 2, 3, 4, 5, 6])
