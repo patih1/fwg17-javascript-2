@@ -6,10 +6,10 @@ function seleksiNilai(num1,num2,array){
   } else if (array.length > 5){
     for(let i = 0; i < array.length; i++) {
       temp = array[i]
-      if(temp >= num1 && temp <= num2) {
+      if(temp > num1 && temp < num2) {
         let y = []
         y = [...y,temp]
-        // console.log(temp)
+        console.log(temp)
         console.log(y)
       }else if (temp <= num1 && temp >= num2){
         console.log("angka tidak ditemukan")
@@ -22,4 +22,4 @@ function seleksiNilai(num1,num2,array){
   }
 
 
-seleksiNilai(2 ,6, [1, 2, 3, 4, 5, 6])
+seleksiNilai(2 ,6,  [1, 2,3, 4, 5, 6])
