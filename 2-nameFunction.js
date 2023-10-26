@@ -51,13 +51,15 @@ function searchName(keyword, len){
     'Carol', 'Caroline', 'Carolyn',
     'Deirdre', 'Diana', 'Elizabeth',
     'Ella', 'Faith', 'Olivia', 'Penelope']
+    let namaNew = []
+
     for(let i = 0; i < nama.length; i++){
       let temp = ''
       temp += nama[i]
       namaLowerCase = lowerCase(temp)
       console.log(namaLowerCase)
     
-
+      
       for(j = 0; j < namaLowerCase.length; j++){
         let temp2 = ''
         for(k = j; k < keywordLowerCase.length + j; k++){
@@ -65,9 +67,14 @@ function searchName(keyword, len){
           if(namaLowerCase[k]){ 
             temp2 += namaLowerCase[k]
           }
+          if(temp2 === keywordLowerCase){
+            namaNew = [...namaNew, temp]
+            console.log(namaNew)
+          }
         }
       console.log(temp2)
       }
     }
+    console.log(namaNew)
 }
 searchName("an")

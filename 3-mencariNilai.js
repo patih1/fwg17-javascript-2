@@ -4,21 +4,20 @@ function seleksiNilai(num1,num2,array){
   }else if(num1 >= num2){
     console.log("nilai awal harus lebih besar dari nilai akhir")
   } else if (array.length > 5){
+    let y = []
     for(let i = 0; i < array.length; i++) {
       temp = array[i]
       if(temp > num1 && temp < num2) {
-        let y = []
+        
         y = [...y,temp]
         console.log(temp)
-        console.log(y)
+       
       }else if (temp <= num1 && temp >= num2){
         console.log("angka tidak ditemukan")
+      } 
       }
-      
-      }
-      
-    }
-    
+      console.log(y)
+    }  
   }
 
 
