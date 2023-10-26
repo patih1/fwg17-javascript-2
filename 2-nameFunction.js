@@ -1,6 +1,4 @@
-
-
-function lowerCase(str){
+  function lowerCase(str){
   let mapingAbjad = {
     A:'a',
     B:'b',
@@ -36,8 +34,8 @@ function lowerCase(str){
       temp += str[i] 
     }  
   }
-  // return temp
-  console.log(temp)
+  return temp
+  // console.log(temp)
 }
 // lowerCase('ASdsaASdAsd')
 
@@ -46,6 +44,7 @@ function lowerCase(str){
 // lowerCase(animal)
 
 function searchName(keyword, len){
+  let keywordLowerCase = lowerCase(keyword)
   const nama = [
     'Abigail', 'Alexandra', 'Alison',
     'Amanda', 'Angela', 'Bella',
@@ -55,13 +54,20 @@ function searchName(keyword, len){
     for(let i = 0; i < nama.length; i++){
       let temp = ''
       temp += nama[i]
-      lowerCase(temp)
-      console.log(temp)
+      namaLowerCase = lowerCase(temp)
+      console.log(namaLowerCase)
+    
 
-      for(j = 0; j < temp.length; j++){
+      for(j = 0; j < namaLowerCase.length; j++){
         let temp2 = ''
-
+        for(k = j; k < keywordLowerCase.length + j; k++){
+          
+          if(namaLowerCase[k]){ 
+            temp2 += namaLowerCase[k]
+          }
+        }
+      console.log(temp2)
       }
     }
 }
-searchName()
+searchName("an")
