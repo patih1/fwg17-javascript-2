@@ -37,13 +37,21 @@
   return temp
   // console.log(temp)
 }
-// lowerCase('ASdsaASdAsd')
 
-// let animal = ["Ayam", "kucing"]
+function doubleCheck (arr){
+  let temp = []
+for(i = 0; i < arr.length; i++){
 
-// lowerCase(animal)
+  if(arr[i] != arr[i+1]){
 
-function searchName(keyword, len){
+  temp = [...temp,arr[i]]
+  }
+} 
+  // console.log(temp)
+  return temp
+}
+
+function searchName(keyword, limit){
   let keywordLowerCase = lowerCase(keyword)
   const nama = [
     'Abigail', 'Alexandra', 'Alison',
@@ -52,13 +60,13 @@ function searchName(keyword, len){
     'Deirdre', 'Diana', 'Elizabeth',
     'Ella', 'Faith', 'Olivia', 'Penelope']
     let namaNew = []
-
+    let x = []
+    let result = []
     for(let i = 0; i < nama.length; i++){
       let temp = ''
       temp += nama[i]
       namaLowerCase = lowerCase(temp)
-      console.log(namaLowerCase)
-    
+      // console.log(namaLowerCase)
       
       for(j = 0; j < namaLowerCase.length; j++){
         let temp2 = ''
@@ -69,12 +77,20 @@ function searchName(keyword, len){
           }
           if(temp2 === keywordLowerCase){
             namaNew = [...namaNew, temp]
-            console.log(namaNew)
+            
           }
         }
-      console.log(temp2)
+      // console.log(temp2)
       }
     }
-    console.log(namaNew)
+    x = [...namaNew]
+    x = doubleCheck(x)
+    // console.log(x)
+    for(l = 0; l < limit; l++){
+      result = [...result, x[l]]
+      // console.log(result)
+    }
+    return result
 }
-searchName("an")
+
+console.log(searchName("an", 1))
