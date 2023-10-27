@@ -1,10 +1,11 @@
-// 1 push, digunakan untuk menambahkan data dalam sebuah array. data akan ditambahkan di akhir array
+// 1 at, dapat digunakan untuk mengambil string pada indexnya
 
-const num = [12, 44, 32]
-num.push(11)
-console.log(num)
+const kalimat = 'aku tak tau apa yang terjadiii, aku tau apa yang terjadi'
+const huruf = kalimat.at(2)
+console.log(huruf)
 
 // 2 pop berfungsi untuk menghapus data dari akhir sebuah array
+const num = [12, 44, 32]
 num.pop()
 console.log(num)
 
@@ -48,10 +49,7 @@ console.log(nama)
 nama.splice(3, 0, "nama4") // tidak menhapus data dari index 3 lalu menambahkan "nama4"
 console.log(nama)
 
-// 10 sort berfungsi untuk mengurutkan array secara alphabetic dan numeric ascending
-num5.sort()
-console.log(num5)
-
-// kita dapat memberikan fungsi alternatif pengurutan menjadi descending
-num5.sort(function(a,b){return b - a})
-console.log(num5)
+// 10 replaceAll() dapat digunakan untuk mengganti string dengan string baru yang diinginkan
+  //  replaceAll() akan mengganti semua string yang cocok dengan yang string yang dtentukan
+  //  urutan paarameter adalah (string yang ingin diganti, pegganti)
+console.log(kalimat.replaceAll('aku', 'dia'))
