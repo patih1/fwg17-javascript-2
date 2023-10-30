@@ -51,7 +51,7 @@ for(i = 0; i < arr.length; i++){
   return temp
 }
 
-function searchName(keyword, limit){
+function searchName(keyword, limit, cb){
   let keywordLowerCase = lowerCase(keyword)
   const nama = [
     'Abigail', 'Alexandra', 'Alison',
@@ -61,7 +61,6 @@ function searchName(keyword, limit){
     'Ella', 'Faith', 'Olivia', 'Penelope']
     let namaNew = []
     let x = []
-    let result = []
     for(let i = 0; i < nama.length; i++){
       let temp = ''
       temp += nama[i]
@@ -84,13 +83,50 @@ function searchName(keyword, limit){
       }
     }
     x = [...namaNew]
-    x = doubleCheck(x)
     // console.log(x)
-    for(l = 0; l < limit; l++){
-      result = [...result, x[l]]
-      // console.log(result)
-    }
-    return result
+    // for(l = 0; l < limit; l++){
+    //   result = [...result, x[l]]
+    //   console.log(result)
+    // }
+    return cb(doubleCheck(x), limit)
 }
 
-console.log(searchName("an", 1))
+const limitData = (arr, limit) => {
+
+  let result = []
+  for(i = 0; i < limit; i++) {
+    if(arr[i]){
+    result = [...result, arr[i]]
+    }
+  }
+  return result
+}
+
+console.log(searchName("z", 2, limitData))
+
+
+
+//--------------------------------------------------------------------------------------------------//
+
+function cariNama(keyword, limit, cb){
+  const nama = [
+    'Abigail', 'Alexandra', 'Alison',
+    'Amanda', 'Angela', 'Bella',
+    'Carol', 'Caroline', 'Carolyn',
+    'Deirdre', 'Diana', 'Elizabeth',
+    'Ella', 'Faith', 'Olivia', 'Penelope']
+
+    const filterNama = (data) => {
+      const nama = data.toLowerCase()
+      return nama.includes(keyword)
+    }
+    
+    return cb(nama.filter(filterNama),limit)
+}
+
+const limitOutput = (nama, limit) => {
+  return nama.slice(0, limit)
+}
+
+console.log(cariNama('an', 9, limitOutput))
+
